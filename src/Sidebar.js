@@ -10,14 +10,14 @@ import {
 import React from "react";
 import "./Sidebar.css";
 import SidebarRow from "./SidebarRow";
+import { useStateValue } from "./StateProvider";
 
 const Sidebar = () => {
+  const [{ user }, dispatch] = useStateValue();
+
   return (
     <div className="sidebar">
-      <SidebarRow
-        src="https://scifusion360.com/wp-content/uploads/2020/03/What-Types-of-Coders-are-There-300x200.jpg"
-        title="Eric Pekmah"
-      />
+      <SidebarRow src={user.photoURL} title={user.displayName} />
       <SidebarRow Icon={LocalHospital} title="CVD Information Center" />
       <SidebarRow Icon={EmojiFlags} title="Pages" />
       <SidebarRow Icon={People} title="Friends" />
